@@ -23,6 +23,10 @@ var shovel_facts = [
 func _ready():
 	randomize()
 	
+func reset():
+	self.score = 0
+	self.combo = 0
+	
 func _set_score(new_score):
 	score = new_score
 	emit_signal("score_changed", score)

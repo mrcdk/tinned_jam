@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/386657__jalastram__sfx-jump-36.wav-d527e23292de2033cddea57d63542ad0.sample"
+
+[deps]
+
+source_file="res://assets/386657__jalastram__sfx-jump-36.wav"
+dest_files=[ "res://.import/386657__jalastram__sfx-jump-36.wav-d527e23292de2033cddea57d63542ad0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

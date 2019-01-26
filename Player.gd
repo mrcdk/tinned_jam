@@ -28,6 +28,8 @@ func _physics_process(delta):
 	# gravity
 	linear_velocity += gravity * delta
 	
+	var was_on_floor = is_on_floor()
+	
 	linear_velocity = move_and_slide(linear_velocity, Vector2.UP, false, 4, 0.78, true)
 	
 	for index in get_slide_count():
@@ -57,8 +59,14 @@ func _physics_process(delta):
 	# jump
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		linear_velocity.y = -jump_speed
+		$Jump.play()
+		
+	if not was_on_floor and is_on_floor():
+		was_on_floor = true
+		$Landing.play()
 		
 	# SHADOW POSITION
+	
 	
 	var shadow_position:Vector2 = Model.position + Vector2(0, 20)
 	

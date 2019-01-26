@@ -9,9 +9,12 @@ func _ready():
 	$DialogTimer.connect("timeout", self, "spawn_dialog")
 	Game.connect("score_changed", self, "_on_score_changed")
 	
-	Game.score = 0
+	Game.reset()
 	spawn_shovels()
 	spawn_dialog()
+	
+func _process(delta):
+	$GUI/Clock/TextureProgress.value = range_lerp($GameTimer.time_left, 0, 60, 0, 100)
 	
 func _on_score_changed(value):
 	$GUI/Score.text = "Score: %s" % value
@@ -38,3 +41,9 @@ func spawn_dialog():
 	if not dialog_target: return
 	
 	Game.emit_signal("show_dialog", get_node(dialog_target))
+
+func _on_GameTimer_timeout():
+	$GUI/GameOver.visible = true
+	$GUI/GameOver.set_process(true)
+	$GUI/GameOver/VBoxContainer/FinalScore.text = "Final Score: %s" % Game.score
+	get_tree().paused = true

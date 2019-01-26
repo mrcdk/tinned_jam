@@ -28,6 +28,7 @@ func _process(delta):
 	
 func _on_show_dialog(target):
 	self.target = target
+	show()
 	$AnimationPlayer.play("hide")
 	yield($AnimationPlayer, "animation_finished")
 	$VBoxContainer/Content.text = Game.shovel_facts[randi() % Game.shovel_facts.size()]

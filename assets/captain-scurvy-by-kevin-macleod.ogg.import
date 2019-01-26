@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/captain-scurvy-by-kevin-macleod.ogg-f6def3c2d3b16a0fa6590de7561e3da1.oggstr"
+
+[deps]
+
+source_file="res://assets/captain-scurvy-by-kevin-macleod.ogg"
+dest_files=[ "res://.import/captain-scurvy-by-kevin-macleod.ogg-f6def3c2d3b16a0fa6590de7561e3da1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
