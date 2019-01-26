@@ -1,0 +1,250 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://MainGame.gd" type="Script" id=1]
+[ext_resource path="res://assets/title_card_01.png" type="Texture" id=2]
+[ext_resource path="res://assets/Krabby Patty.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/scene-theatre-floor.png" type="Texture" id=4]
+[ext_resource path="res://assets/scene-theatre-foreground.png" type="Texture" id=5]
+[ext_resource path="res://assets/tiles.png" type="Texture" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://DialogContainer.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=19]
+
+size = 56
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=20]
+
+size = 32
+use_mipmaps = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+points = PoolVector2Array( 0, 4, 16, 4, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+points = PoolVector2Array( 0, 4, 16, 4, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+
+points = PoolVector2Array( 0, 4, 16, 4, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=12]
+
+0/name = "tiles.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 48, 32 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 5, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 1 ]
+0/autotile/icon_coordinate = Vector2( 1, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="PhysicsMaterial" id=21]
+
+
+[sub_resource type="RectangleShape2D" id=22]
+
+extents = Vector2( 320, 10 )
+
+[sub_resource type="RectangleShape2D" id=23]
+
+extents = Vector2( 320, 10 )
+
+[sub_resource type="DynamicFont" id=24]
+
+size = 48
+use_mipmaps = true
+font_data = ExtResource( 3 )
+
+[node name="MainGame" type="Node"]
+script = ExtResource( 1 )
+dialog_target = NodePath("Player/DialogPosition")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Sprite" parent="Background"]
+scale = Vector2( 0.499219, 0.665278 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Title" type="Label" parent="Background"]
+margin_top = 179.0
+margin_right = 640.0
+margin_bottom = 308.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0, 1, 0.505882, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+text = "WHEN PUSH COME
+TO SHOVE(L)"
+align = 1
+valign = 1
+
+[node name="Subtitle" type="Label" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 331.0
+margin_bottom = -74.0
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 1, 0.27451, 0.886275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+text = "An awesome adventure
+about a spongeboy and his shovels"
+align = 1
+autowrap = true
+
+[node name="Floor" type="Sprite" parent="Background"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Foreground" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="Foreground" type="Sprite" parent="Foreground"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 12 )
+cell_size = Vector2( 16, 16 )
+collision_friction = 0.8
+collision_bounce = 0.2
+collision_mask = 6
+format = 1
+tile_data = PoolIntArray( 786462, 0, 0, 786463, 0, 1, 786464, 0, 1, 786465, 0, 1, 786466, 0, 2, 851998, 0, 65536, 851999, 0, 65537, 852000, 0, 65537, 852001, 0, 65537, 852002, 0, 65538, 917516, 0, 0, 917517, 0, 1, 917518, 0, 1, 917519, 0, 1, 917520, 0, 1, 917521, 0, 1, 917522, 0, 2, 983052, 0, 65536, 983053, 0, 65537, 983054, 0, 65537, 983055, 0, 65537, 983056, 0, 65537, 983057, 0, 65537, 983058, 0, 65538, 1179669, 0, 0, 1179670, 0, 1, 1179671, 0, 1, 1179672, 0, 1, 1179673, 0, 1, 1179674, 0, 2, 1245184, 0, 0, 1245185, 0, 1, 1245186, 0, 1, 1245187, 0, 1, 1245188, 0, 1, 1245189, 0, 1, 1245190, 0, 1, 1245191, 0, 1, 1245192, 0, 2, 1245205, 0, 65536, 1245206, 0, 65537, 1245207, 0, 65537, 1245208, 0, 65537, 1245209, 0, 65537, 1245210, 0, 65538, 1310720, 0, 65536, 1310721, 0, 65537, 1310722, 0, 65537, 1310723, 0, 65537, 1310724, 0, 65537, 1310725, 0, 65537, 1310726, 0, 65537, 1310727, 0, 65537, 1310728, 0, 65538, 1441822, 0, 0, 1441823, 0, 1, 1441824, 0, 1, 1441825, 0, 2, 1507358, 0, 65536, 1507359, 0, 65537, 1507360, 0, 65537, 1507361, 0, 65538 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+position = Vector2( 86, 175 )
+
+[node name="Walls" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Floor" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 320, 460 )
+physics_material_override = SubResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Floor"]
+shape = SubResource( 22 )
+
+[node name="WallRight" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( 645, 240 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 0
+physics_material_override = SubResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
+shape = SubResource( 23 )
+
+[node name="WallLeft" type="StaticBody2D" parent="Walls"]
+editor/display_folded = true
+position = Vector2( -10, 240 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 0
+physics_material_override = SubResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/WallLeft"]
+rotation = 1.93722e-012
+shape = SubResource( 23 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
+[node name="DialogTimer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Score" type="Label" parent="GUI"]
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 24 )
+custom_colors/font_color = Color( 0.992157, 0.188235, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+text = "SCORE:"
+
+[node name="DialogContainer" parent="GUI" instance=ExtResource( 8 )]
+
+
+[editable path="Player"]
